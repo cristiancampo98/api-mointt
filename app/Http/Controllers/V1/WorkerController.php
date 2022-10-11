@@ -18,4 +18,9 @@ class WorkerController extends ResponseController
     {
         return $this->workerRepository->getAll();
     }
+
+    public function getWorkerById()
+    {
+        return $this->workerRepository->getById();
+    }
 }

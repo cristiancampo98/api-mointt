@@ -36,5 +36,6 @@ Route::prefix('v1')->group(function () {
 
     Route::prefix('workers')->group(function () {
         Route::get('/get-all', [WorkerController::class, 'getAllWorkers']);
+        Route::get('/get-worker/{id}', [WorkerController::class, 'getWorkerById']);
     });
 });
