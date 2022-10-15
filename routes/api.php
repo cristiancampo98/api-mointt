@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\V1\EmployerController;
 use App\Http\Controllers\V1\LoginController;
 use App\Http\Controllers\V1\ProfileController;
 use App\Http\Controllers\V1\WorkerController;
@@ -32,10 +33,13 @@ Route::prefix('v1')->group(function () {
         Route::get('/employer', [ProfileController::class, 'employerProfile']);
     });
 
-
-
     Route::prefix('workers')->group(function () {
         Route::get('/get-all', [WorkerController::class, 'getAllWorkers']);
         Route::get('/get-worker/{id}', [WorkerController::class, 'getWorkerById']);
+    });
+
+    Route::prefix('employers')->group(function () {
+        Route::get('/get-all', [EmployerController::class, 'getAllEmployers']);
+        Route::get('/get-employer/{id}', [EmployerController::class, 'getEmployerById']);
     });
 });
