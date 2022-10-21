@@ -42,6 +42,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function status()
+    {
+        return $this->belongsTo(Status::class, 'est_id');
+    }
+
     public function worker()
     {
         return $this->hasOne(DataWorker::class, 'id_user');

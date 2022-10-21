@@ -16,8 +16,9 @@ class WorkerResource extends JsonResource
     {
         return  [
             'id' => $this->id,
-            'fullname' =>  "{$this->name} {$this->last_name}",
-            'status' => $this->est_id,
+            'fullname' => "{$this->name} {$this->last_name}",
+            'image' => $this->foto,
+            'status' => new StatusResource($this->status),
             'dataWorker' =>  new DataWorkerResource($this->worker),
             'rates' => new RatesCollection($this->rates)
         ];
