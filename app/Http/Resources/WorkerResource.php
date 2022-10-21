@@ -14,6 +14,12 @@ class WorkerResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return  [
+            'id' => $this->id,
+            'fullname' =>  "{$this->name} {$this->last_name}",
+            'status' => $this->est_id,
+            'dataWorker' =>  new DataWorkerResource($this->worker),
+            'rates' => new RatesCollection($this->rates)
+        ];
     }
 }

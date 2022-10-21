@@ -11,6 +11,11 @@ class DataWorker extends Model
 
     protected $table = 'tn_user_datos_trabajador';
 
+    public function status()
+    {
+        return $this->belongsTo(Status::class, 'id_estado');
+    }
+
     public function category()
     {
         return $this->belongsTo(Category::class, 'id_categoria');
@@ -24,5 +29,20 @@ class DataWorker extends Model
     public function experience()
     {
         return $this->belongsTo(Experience::class, 'id_experiencia');
+    }
+
+    public function eps()
+    {
+        return $this->belongsTo(EPS::class, 'id_eps');
+    }
+
+    public function arl()
+    {
+        return $this->belongsTo(ARL::class, 'id_arl');
+    }
+
+    public function rh()
+    {
+        return $this->belongsTo(RH::class, 'id_rh');
     }
 }

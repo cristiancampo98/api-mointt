@@ -16,10 +16,14 @@ class DataWorkerResource extends JsonResource
     {
 
         return [
+            'status' => new StatusResource($this->status),
             'category' => new CategoryResource($this->category),
             'specialty' => new SpecialtyResource($this->specialty),
             'experience' => new ExperienceResource($this->experience),
-            'cost_per_our' => $this->valor_hora
+            'cost_per_our' => $this->valor_hora,
+            'rh' => new RHResource($this->rh),
+            'eps' => new EPSResource($this->eps),
+            'arl' => new ARLResource($this->arl),
         ];
     }
 }

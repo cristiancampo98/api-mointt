@@ -51,4 +51,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(DataEmployer::class, 'id_user');
     }
+
+    public function rates()
+    {
+        return $this->hasMany(Rate::class, 'user_id');
+    }
 }
