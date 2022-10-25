@@ -61,4 +61,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Rate::class, 'user_id');
     }
+
+    public function department()
+    {
+        return $this->belongsTo(Department::class, 'id_departamento', 'id_departamento');
+    }
+
+    public function city()
+    {
+        return $this->belongsTo(City::class, 'id_ciudad', 'id_municipio');
+    }
 }

@@ -19,8 +19,20 @@ class WorkersResource extends JsonResource
             'name' => $this->name,
             'last_name' => $this->last_name,
             'photo' => $this->foto,
+            'department' => $this->department->departamento,
+            'city' => $this->city->municipio,
             'data_worker' => new DataWorkerResource($this->worker),
+            'rates' => $this->getAverageScore() //$this->rates->sum('puntuacion') / $this->rates->count()
 
         ];
+    }
+
+    public function getAverageScore()
+    {
+        $totalRates = $this->rates->count();
+        if (!$totalRates) {
+            return $totalRates;
+        }
+        return $this->rates->sum('puntuacion') / $totalRates;
     }
 }
